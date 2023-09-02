@@ -1,0 +1,569 @@
+[
+  {
+    "id": "6fb4aaa5bde27126",
+    "type": "tab",
+    "label": "Flow 1",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "a12dbcae141f72e0",
+    "type": "inject",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "3600",
+    "crontab": "",
+    "once": false,
+    "onceDelay": "",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 450,
+    "y": 220,
+    "wires": [
+      [
+        "552e046bee9f5fd6"
+      ]
+    ]
+  },
+  {
+    "id": "552e046bee9f5fd6",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 710,
+    "y": 220,
+    "wires": []
+  },
+  {
+    "id": "fa7c96fef5ef82d6",
+    "type": "inject",
+    "z": "6fb4aaa5bde27126",
+    "d": true,
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "from",
+        "v": "nodered@jarbank.io",
+        "vt": "str"
+      }
+    ],
+    "repeat": "3600",
+    "crontab": "",
+    "once": false,
+    "onceDelay": "",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 150,
+    "y": 460,
+    "wires": [
+      [
+        "bab1eaa24b16fdaa"
+      ]
+    ]
+  },
+  {
+    "id": "ce0227f34e19c33e",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "from",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 700,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "3011b6a0952e6ca4",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 690,
+    "y": 340,
+    "wires": []
+  },
+  {
+    "id": "d9948029c0c687db",
+    "type": "inject",
+    "z": "6fb4aaa5bde27126",
+    "d": true,
+    "name": "Check erogluozgur@gmail.com",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      },
+      {
+        "p": "criteria",
+        "v": "[[\"FROM\",\"jobalerts-noreply@linkedin.com\"]]",
+        "vt": "json"
+      }
+    ],
+    "repeat": "3600",
+    "crontab": "",
+    "once": false,
+    "onceDelay": "",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 150,
+    "y": 360,
+    "wires": [
+      [
+        "078ab4d828fefce0"
+      ]
+    ]
+  },
+  {
+    "id": "d38f650cd1b01294",
+    "type": "inject",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "from",
+        "v": "nodered@jarbank.io",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": "",
+    "topic": "",
+    "payload": "{\"name\":\"Anna\",\"age\":\"34\"}",
+    "payloadType": "json",
+    "x": 90,
+    "y": 540,
+    "wires": [
+      [
+        "51a8c0a5e350c640"
+      ]
+    ]
+  },
+  {
+    "id": "5514224e9ff30625",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1230,
+    "y": 720,
+    "wires": []
+  },
+  {
+    "id": "844d92295b6a04b2",
+    "type": "split",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "splt": "\\n",
+    "spltType": "str",
+    "arraySplt": 1,
+    "arraySpltType": "len",
+    "stream": false,
+    "addname": "",
+    "x": 530,
+    "y": 540,
+    "wires": [
+      [
+        "bab1eaa24b16fdaa",
+        "3cd53d89b303a40f",
+        "5514224e9ff30625"
+      ]
+    ]
+  },
+  {
+    "id": "755bb1e11af9248b",
+    "type": "http in",
+    "z": "6fb4aaa5bde27126",
+    "name": "start",
+    "url": "/trigger",
+    "method": "get",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 90,
+    "y": 640,
+    "wires": [
+      [
+        "bb50c1d45919855d",
+        "10fad091f10371fc",
+        "8f4f47a2269aa573",
+        "16b3a2e387a8b9cd"
+      ]
+    ]
+  },
+  {
+    "id": "10fad091f10371fc",
+    "type": "http response",
+    "z": "6fb4aaa5bde27126",
+    "name": "http response",
+    "statusCode": "200",
+    "headers": {
+      "xyz": "ttt"
+    },
+    "x": 280,
+    "y": 640,
+    "wires": [],
+    "info": "werwer"
+  },
+  {
+    "id": "3cd53d89b303a40f",
+    "type": "switch",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "property": "payload[0]",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "mercedes e200",
+        "vt": "str"
+      },
+      {
+        "t": "neq",
+        "v": "mercedes e200",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 710,
+    "y": 540,
+    "wires": [
+      [
+        "f8425a4749062b6f",
+        "8a71b10668863482"
+      ],
+      [
+        "39d53b40ce7678ba"
+      ]
+    ]
+  },
+  {
+    "id": "f8425a4749062b6f",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1070,
+    "y": 520,
+    "wires": []
+  },
+  {
+    "id": "39d53b40ce7678ba",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 1070,
+    "y": 600,
+    "wires": []
+  },
+  {
+    "id": "8a71b10668863482",
+    "type": "file",
+    "z": "6fb4aaa5bde27126",
+    "name": "gsheet",
+    "filename": "test/test.txt",
+    "filenameType": "str",
+    "appendNewline": true,
+    "createDir": true,
+    "overwriteFile": "true",
+    "encoding": "utf8",
+    "x": 1070,
+    "y": 460,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "850c156438140411",
+    "type": "function",
+    "z": "6fb4aaa5bde27126",
+    "name": "Convert to JSON",
+    "func": "// Convert the simple date string to a JSON object\nmsg.payload = { time: msg.payload };\n\n// Return the modified message\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 590,
+    "y": 880,
+    "wires": [
+      [
+        "51a8c0a5e350c640",
+        "0724b0e0a53debb1"
+      ]
+    ]
+  },
+  {
+    "id": "bb50c1d45919855d",
+    "type": "GSheet",
+    "z": "6fb4aaa5bde27126",
+    "creds": "f1a2349b5827af57",
+    "method": "get",
+    "action": "",
+    "sheet": "1LJPOxtWYwGUCFm2nHxLmuKGAhnzL1xDAeogSpVwL_lE",
+    "cells": "Sheet1!A1:C5",
+    "flatten": false,
+    "name": "nodered-test",
+    "x": 350,
+    "y": 540,
+    "wires": [
+      [
+        "844d92295b6a04b2"
+      ]
+    ]
+  },
+  {
+    "id": "bab1eaa24b16fdaa",
+    "type": "e-mail",
+    "z": "6fb4aaa5bde27126",
+    "server": "smtp.sendgrid.net",
+    "port": "465",
+    "authtype": "BASIC",
+    "saslformat": true,
+    "token": "oauth2Response.access_token",
+    "secure": true,
+    "tls": true,
+    "name": "erogluozgur@gmail.com",
+    "dname": "Nodered",
+    "x": 740,
+    "y": 460,
+    "wires": []
+  },
+  {
+    "id": "078ab4d828fefce0",
+    "type": "e-mail in",
+    "z": "6fb4aaa5bde27126",
+    "d": true,
+    "name": "",
+    "protocol": "IMAP",
+    "server": "imap.gmail.com",
+    "useSSL": true,
+    "autotls": "never",
+    "port": "993",
+    "authtype": "BASIC",
+    "saslformat": true,
+    "token": "oauth2Response.access_token",
+    "box": "INBOX",
+    "disposition": "None",
+    "criteria": "UNSEEN",
+    "repeat": "300",
+    "fetch": "trigger",
+    "inputs": 1,
+    "x": 430,
+    "y": 360,
+    "wires": [
+      [
+        "552e046bee9f5fd6",
+        "ce0227f34e19c33e",
+        "3011b6a0952e6ca4"
+      ]
+    ]
+  },
+  {
+    "id": "0724b0e0a53debb1",
+    "type": "postgresql",
+    "z": "6fb4aaa5bde27126",
+    "name": "Phoenix PG",
+    "query": "SELECT * FROM test;",
+    "postgreSQLConfig": "484ec20fcbc9a766",
+    "split": false,
+    "rowsPerMsg": 1,
+    "outputs": 1,
+    "x": 850,
+    "y": 920,
+    "wires": [
+      [
+        "5514224e9ff30625"
+      ]
+    ]
+  },
+  {
+    "id": "51a8c0a5e350c640",
+    "type": "mongodb4",
+    "z": "6fb4aaa5bde27126",
+    "clientNode": "4e1c8e4f7a9f8cf2",
+    "mode": "collection",
+    "collection": "test",
+    "operation": "insertOne",
+    "output": "toArray",
+    "maxTimeMS": "0",
+    "handleDocId": false,
+    "name": "",
+    "x": 840,
+    "y": 840,
+    "wires": [
+      [
+        "5514224e9ff30625"
+      ]
+    ]
+  },
+  {
+    "id": "8f4f47a2269aa573",
+    "type": "pythonshell in",
+    "z": "6fb4aaa5bde27126",
+    "name": "Local Python Code",
+    "pyfile": "pipeline_python_code/helloworld.py",
+    "virtualenv": "",
+    "continuous": true,
+    "stdInData": true,
+    "x": 330,
+    "y": 780,
+    "wires": [
+      [
+        "5514224e9ff30625",
+        "850c156438140411"
+      ]
+    ]
+  },
+  {
+    "id": "16b3a2e387a8b9cd",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "trigger payload",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "req",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 360,
+    "y": 980,
+    "wires": []
+  },
+  {
+    "id": "4eca86989fd4cb56",
+    "type": "http in",
+    "z": "6fb4aaa5bde27126",
+    "name": "Create Git Repo",
+    "url": "/createrepo",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 160,
+    "y": 1200,
+    "wires": [
+      [
+        "936330dca990c4c4",
+        "6fd41d3990cb87a3",
+        "8b7f71aaa45d97a5"
+      ]
+    ]
+  },
+  {
+    "id": "936330dca990c4c4",
+    "type": "http response",
+    "z": "6fb4aaa5bde27126",
+    "name": "http response",
+    "statusCode": "200",
+    "headers": {
+      "xyz": "ttt"
+    },
+    "x": 480,
+    "y": 1120,
+    "wires": [],
+    "info": "werwer"
+  },
+  {
+    "id": "6fd41d3990cb87a3",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "trigger payload",
+    "active": false,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "req.body",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 460,
+    "y": 1300,
+    "wires": []
+  },
+  {
+    "id": "8b7f71aaa45d97a5",
+    "type": "pythonshell in",
+    "z": "6fb4aaa5bde27126",
+    "name": "Local Python Code",
+    "pyfile": "pipeline_python_code/getParam.py",
+    "virtualenv": "",
+    "continuous": false,
+    "stdInData": false,
+    "x": 490,
+    "y": 1200,
+    "wires": [
+      [
+        "5514224e9ff30625"
+      ]
+    ]
+  }
+]

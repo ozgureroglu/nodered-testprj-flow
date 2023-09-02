@@ -2,7 +2,13 @@
     "name": "nodered-testprj-flow",
     "description": "nodered-testprj-flow",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-contrib-google-sheets": "1.1.2",
+        "node-red-contrib-mongodb4": "2.3.0",
+        "node-red-contrib-postgresql": "0.13.0",
+        "node-red-contrib-pythonshell": "1.5.4",
+        "node-red-node-email": "2.0.1"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
