@@ -1,0 +1,558 @@
+[
+  {
+    "id": "a6398238.dbb24",
+    "type": "tab",
+    "label": "example create python env and install packages",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "f4319015.f829c",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 100,
+    "y": 820,
+    "wires": [
+      [
+        "b8d5a5ee.27a048"
+      ]
+    ]
+  },
+  {
+    "id": "ba14283e.921b28",
+    "type": "file",
+    "z": "a6398238.dbb24",
+    "name": "example.py",
+    "filename": "/data/example.py",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 530,
+    "y": 820,
+    "wires": [
+      [
+        "45fc3c1b.2cdf44"
+      ]
+    ]
+  },
+  {
+    "id": "b8d5a5ee.27a048",
+    "type": "template",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "python",
+    "syntax": "plain",
+    "template": "import sys\n\ndef absolute_value(num):\n\t\"\"\"This function returns the absolute\n\tvalue of the entered number\"\"\"\n\n\tif num >= 0:\n\t\treturn num\n\telse:\n\t\treturn -num\n\n# Output: 2\n#print(absolute_value(2))\n\nwhile True:\n    num = sys.stdin.readline() # read the stdin from the inject node\n    num = int(num)\n    print(absolute_value(num))",
+    "output": "str",
+    "x": 300,
+    "y": 820,
+    "wires": [
+      [
+        "ba14283e.921b28"
+      ]
+    ]
+  },
+  {
+    "id": "13717224.4e8bfe",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "create a python script file and save to disk",
+    "info": "",
+    "x": 340,
+    "y": 760,
+    "wires": []
+  },
+  {
+    "id": "a41dee1f.ceba1",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 140,
+    "y": 100,
+    "wires": [
+      [
+        "58b5c2a.d8e9f3c"
+      ]
+    ]
+  },
+  {
+    "id": "b5798004.7515c",
+    "type": "file",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "filename": "/data/create_env.sh",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 530,
+    "y": 100,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "58b5c2a.d8e9f3c",
+    "type": "template",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "python",
+    "syntax": "plain",
+    "template": "#!/bin/bash \n\ncd /data\nls -l\npython3 -m venv envtest\nsource envtest/bin/activate\nls -l\nwhich python",
+    "output": "str",
+    "x": 300,
+    "y": 100,
+    "wires": [
+      [
+        "b5798004.7515c"
+      ]
+    ]
+  },
+  {
+    "id": "675e87af.f0a968",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 120,
+    "y": 200,
+    "wires": [
+      [
+        "7dd4be3e.84d4d"
+      ]
+    ]
+  },
+  {
+    "id": "7dd4be3e.84d4d",
+    "type": "exec",
+    "z": "a6398238.dbb24",
+    "command": "chmod u+x /data/create_env.sh",
+    "addpay": false,
+    "append": "",
+    "useSpawn": "false",
+    "timer": "",
+    "oldrc": false,
+    "name": "make create_env.sh file executable",
+    "x": 380,
+    "y": 200,
+    "wires": [
+      [
+        "62d946f1.440b28"
+      ],
+      [
+        "62d946f1.440b28"
+      ],
+      [
+        "62d946f1.440b28"
+      ]
+    ]
+  },
+  {
+    "id": "62d946f1.440b28",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 610,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "bd5f6d44.e7d4b",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 100,
+    "y": 320,
+    "wires": [
+      [
+        "3edc17c3.75cb18"
+      ]
+    ]
+  },
+  {
+    "id": "3edc17c3.75cb18",
+    "type": "exec",
+    "z": "a6398238.dbb24",
+    "command": "bash /data/create_env.sh",
+    "addpay": false,
+    "append": "",
+    "useSpawn": "true",
+    "timer": "",
+    "oldrc": false,
+    "name": "execute create_env.sh",
+    "x": 340,
+    "y": 320,
+    "wires": [
+      [
+        "9b94a230.939e5"
+      ],
+      [
+        "9b94a230.939e5"
+      ],
+      [
+        "9b94a230.939e5"
+      ]
+    ]
+  },
+  {
+    "id": "9b94a230.939e5",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 590,
+    "y": 320,
+    "wires": []
+  },
+  {
+    "id": "4e8765d8.507ddc",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 100,
+    "y": 540,
+    "wires": [
+      [
+        "61a0c56a.052f5c"
+      ]
+    ]
+  },
+  {
+    "id": "61a0c56a.052f5c",
+    "type": "exec",
+    "z": "a6398238.dbb24",
+    "command": "chmod u+x /data/install_packages.sh",
+    "addpay": false,
+    "append": "",
+    "useSpawn": "true",
+    "timer": "",
+    "oldrc": false,
+    "name": "make install_packages.sh file executable",
+    "x": 400,
+    "y": 540,
+    "wires": [
+      [
+        "13c2c87a.b73bc8"
+      ],
+      [
+        "13c2c87a.b73bc8"
+      ],
+      [
+        "13c2c87a.b73bc8"
+      ]
+    ]
+  },
+  {
+    "id": "13c2c87a.b73bc8",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 670,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "e39cb324.19715",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 100,
+    "y": 680,
+    "wires": [
+      [
+        "fbbbbe17.cfbef"
+      ]
+    ]
+  },
+  {
+    "id": "fbbbbe17.cfbef",
+    "type": "exec",
+    "z": "a6398238.dbb24",
+    "command": "bash /data/install_packages.sh",
+    "addpay": false,
+    "append": "",
+    "useSpawn": "true",
+    "timer": "",
+    "oldrc": false,
+    "name": "execute /install_packages.sh",
+    "x": 360,
+    "y": 680,
+    "wires": [
+      [
+        "70a58ad1.947204"
+      ],
+      [
+        "70a58ad1.947204"
+      ],
+      [
+        "70a58ad1.947204"
+      ]
+    ]
+  },
+  {
+    "id": "70a58ad1.947204",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 590,
+    "y": 680,
+    "wires": []
+  },
+  {
+    "id": "7e36e3ea.d2ee8c",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "create bash file that creates and activates venv",
+    "info": "In the template node we create a bash file that will create a virtual python environment and activate the environment.\n\n#!/bin/bash \n\ncd /data\nls -l\npython3 -m venv envtest\nsource envtest/bin/activate\nls -l\nwhich python",
+    "x": 340,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "10bf703d.477d3",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "make the bash file executable",
+    "info": "",
+    "x": 280,
+    "y": 140,
+    "wires": []
+  },
+  {
+    "id": "8ffba3c3.5413",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "make the bash file executable",
+    "info": "",
+    "x": 300,
+    "y": 480,
+    "wires": []
+  },
+  {
+    "id": "ffe32ec1.4f824",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "execute the bash file",
+    "info": "",
+    "x": 250,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "f0066900.4db1f8",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 100,
+    "y": 420,
+    "wires": [
+      [
+        "34f6f7c4.23b168"
+      ]
+    ]
+  },
+  {
+    "id": "255ca056.4e641",
+    "type": "file",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "filename": "/data/install_packages.sh",
+    "appendNewline": true,
+    "createDir": false,
+    "overwriteFile": "true",
+    "encoding": "none",
+    "x": 610,
+    "y": 420,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "34f6f7c4.23b168",
+    "type": "template",
+    "z": "a6398238.dbb24",
+    "name": "file to install packages",
+    "field": "payload",
+    "fieldType": "msg",
+    "format": "python",
+    "syntax": "plain",
+    "template": "#!/bin/bash \n\ncd /data\nsource envtest/bin/activate\nls -l\nwhich python\npip3 install sys",
+    "output": "str",
+    "x": 340,
+    "y": 420,
+    "wires": [
+      [
+        "255ca056.4e641"
+      ]
+    ]
+  },
+  {
+    "id": "39f56651.847cca",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "create bash file that installs packages",
+    "info": "",
+    "x": 270,
+    "y": 380,
+    "wires": []
+  },
+  {
+    "id": "fa6a51ee.d9239",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "execute the bash file to install packages",
+    "info": "",
+    "x": 330,
+    "y": 620,
+    "wires": []
+  },
+  {
+    "id": "e757b049.aa745",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 680,
+    "y": 920,
+    "wires": []
+  },
+  {
+    "id": "9b520682.5cbbe8",
+    "type": "pythonshell in",
+    "z": "a6398238.dbb24",
+    "name": "example",
+    "pyfile": "/data/example.py",
+    "virtualenv": "/data/envtest",
+    "continuous": true,
+    "stdInData": true,
+    "x": 400,
+    "y": 920,
+    "wires": [
+      [
+        "e757b049.aa745"
+      ]
+    ]
+  },
+  {
+    "id": "4bd2821f.13aaac",
+    "type": "inject",
+    "z": "a6398238.dbb24",
+    "name": "inject number",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "2",
+    "payloadType": "num",
+    "x": 130,
+    "y": 920,
+    "wires": [
+      [
+        "9b520682.5cbbe8"
+      ]
+    ]
+  },
+  {
+    "id": "317f7a8.2b1ed86",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "inject a number to the python script and display it in the debug window",
+    "info": "",
+    "x": 430,
+    "y": 880,
+    "wires": []
+  },
+  {
+    "id": "45fc3c1b.2cdf44",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 690,
+    "y": 820,
+    "wires": []
+  }
+]

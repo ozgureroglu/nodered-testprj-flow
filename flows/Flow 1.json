@@ -555,7 +555,7 @@
     "z": "6fb4aaa5bde27126",
     "name": "Local Python Code",
     "pyfile": "pipeline_python_code/getParam.py",
-    "virtualenv": "",
+    "virtualenv": "pipeline_python_code/venv/",
     "continuous": false,
     "stdInData": false,
     "x": 490,
