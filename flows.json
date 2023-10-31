@@ -671,7 +671,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 850,
+        "x": 1070,
         "y": 1480,
         "wires": []
     },
@@ -745,8 +745,8 @@
         "limit": "",
         "loopPayload": "loop-val",
         "finalPayload": "final-last",
-        "x": 770,
-        "y": 1280,
+        "x": 850,
+        "y": 1360,
         "wires": [
             [],
             [
@@ -765,8 +765,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
-        "y": 1420,
+        "x": 860,
+        "y": 1480,
         "wires": [
             [
                 "4505fa40064cf5fe",
