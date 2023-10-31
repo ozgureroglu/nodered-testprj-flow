@@ -106,7 +106,7 @@
     "type": "debug",
     "z": "6fb4aaa5bde27126",
     "name": "",
-    "active": true,
+    "active": false,
     "tosidebar": true,
     "console": false,
     "tostatus": false,
@@ -157,6 +157,7 @@
     "id": "d38f650cd1b01294",
     "type": "inject",
     "z": "6fb4aaa5bde27126",
+    "d": true,
     "name": "",
     "props": [
       {
@@ -188,7 +189,7 @@
     "type": "debug",
     "z": "6fb4aaa5bde27126",
     "name": "",
-    "active": true,
+    "active": false,
     "tosidebar": true,
     "console": false,
     "tostatus": false,
@@ -196,7 +197,7 @@
     "targetType": "msg",
     "statusVal": "",
     "statusType": "auto",
-    "x": 1230,
+    "x": 1090,
     "y": 720,
     "wires": []
   },
@@ -563,6 +564,67 @@
     "wires": [
       [
         "5514224e9ff30625"
+      ]
+    ]
+  },
+  {
+    "id": "dc0f6ebe95b58b23",
+    "type": "inject",
+    "z": "6fb4aaa5bde27126",
+    "name": "Cron",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "600",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 170,
+    "y": 1480,
+    "wires": [
+      [
+        "574d9a92a43aa0c0"
+      ]
+    ]
+  },
+  {
+    "id": "7d78c9efdaa79028",
+    "type": "debug",
+    "z": "6fb4aaa5bde27126",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": false,
+    "complete": "true",
+    "targetType": "full",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 690,
+    "y": 1480,
+    "wires": []
+  },
+  {
+    "id": "574d9a92a43aa0c0",
+    "type": "GSheet",
+    "z": "6fb4aaa5bde27126",
+    "creds": "fe78a96200b2b869",
+    "method": "get",
+    "action": "",
+    "sheet": "1jVDAJczLCt7XOYhNxi9LP_V_FaUMtbK0SHnZr15aVkU",
+    "cells": "Sheet1!A2:A51",
+    "flatten": false,
+    "name": "Get Industries",
+    "x": 420,
+    "y": 1480,
+    "wires": [
+      [
+        "7d78c9efdaa79028"
       ]
     ]
   }

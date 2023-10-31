@@ -18,8 +18,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 100,
-    "y": 820,
+    "x": 180,
+    "y": 1380,
     "wires": [
       [
         "b8d5a5ee.27a048"
@@ -32,12 +32,13 @@
     "z": "a6398238.dbb24",
     "name": "example.py",
     "filename": "/data/example.py",
+    "filenameType": "str",
     "appendNewline": true,
     "createDir": false,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 530,
-    "y": 820,
+    "x": 610,
+    "y": 1380,
     "wires": [
       [
         "45fc3c1b.2cdf44"
@@ -55,8 +56,8 @@
     "syntax": "plain",
     "template": "import sys\n\ndef absolute_value(num):\n\t\"\"\"This function returns the absolute\n\tvalue of the entered number\"\"\"\n\n\tif num >= 0:\n\t\treturn num\n\telse:\n\t\treturn -num\n\n# Output: 2\n#print(absolute_value(2))\n\nwhile True:\n    num = sys.stdin.readline() # read the stdin from the inject node\n    num = int(num)\n    print(absolute_value(num))",
     "output": "str",
-    "x": 300,
-    "y": 820,
+    "x": 380,
+    "y": 1380,
     "wires": [
       [
         "ba14283e.921b28"
@@ -69,8 +70,8 @@
     "z": "a6398238.dbb24",
     "name": "create a python script file and save to disk",
     "info": "",
-    "x": 340,
-    "y": 760,
+    "x": 420,
+    "y": 1340,
     "wires": []
   },
   {
@@ -78,6 +79,18 @@
     "type": "inject",
     "z": "a6398238.dbb24",
     "name": "",
+    "props": [
+      {
+        "p": "payload",
+        "v": "",
+        "vt": "date"
+      },
+      {
+        "p": "topic",
+        "v": "",
+        "vt": "str"
+      }
+    ],
     "repeat": "",
     "crontab": "",
     "once": false,
@@ -85,8 +98,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 140,
-    "y": 100,
+    "x": 180,
+    "y": 180,
     "wires": [
       [
         "58b5c2a.d8e9f3c"
@@ -99,14 +112,17 @@
     "z": "a6398238.dbb24",
     "name": "",
     "filename": "/data/create_env.sh",
+    "filenameType": "str",
     "appendNewline": true,
     "createDir": false,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 530,
-    "y": 100,
+    "x": 620,
+    "y": 180,
     "wires": [
-      []
+      [
+        "e0ffc6da89f1f61f"
+      ]
     ]
   },
   {
@@ -120,8 +136,8 @@
     "syntax": "plain",
     "template": "#!/bin/bash \n\ncd /data\nls -l\npython3 -m venv envtest\nsource envtest/bin/activate\nls -l\nwhich python",
     "output": "str",
-    "x": 300,
-    "y": 100,
+    "x": 360,
+    "y": 180,
     "wires": [
       [
         "b5798004.7515c"
@@ -140,8 +156,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 120,
-    "y": 200,
+    "x": 180,
+    "y": 280,
     "wires": [
       [
         "7dd4be3e.84d4d"
@@ -157,10 +173,11 @@
     "append": "",
     "useSpawn": "false",
     "timer": "",
+    "winHide": false,
     "oldrc": false,
     "name": "make create_env.sh file executable",
-    "x": 380,
-    "y": 200,
+    "x": 440,
+    "y": 280,
     "wires": [
       [
         "62d946f1.440b28"
@@ -183,8 +200,8 @@
     "console": false,
     "tostatus": false,
     "complete": "false",
-    "x": 610,
-    "y": 200,
+    "x": 850,
+    "y": 280,
     "wires": []
   },
   {
@@ -199,8 +216,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 100,
-    "y": 320,
+    "x": 180,
+    "y": 400,
     "wires": [
       [
         "3edc17c3.75cb18"
@@ -216,10 +233,11 @@
     "append": "",
     "useSpawn": "true",
     "timer": "",
+    "winHide": false,
     "oldrc": false,
     "name": "execute create_env.sh",
-    "x": 340,
-    "y": 320,
+    "x": 400,
+    "y": 400,
     "wires": [
       [
         "9b94a230.939e5"
@@ -242,8 +260,8 @@
     "console": false,
     "tostatus": false,
     "complete": "false",
-    "x": 590,
-    "y": 320,
+    "x": 850,
+    "y": 400,
     "wires": []
   },
   {
@@ -258,8 +276,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 100,
-    "y": 540,
+    "x": 180,
+    "y": 780,
     "wires": [
       [
         "61a0c56a.052f5c"
@@ -275,10 +293,11 @@
     "append": "",
     "useSpawn": "true",
     "timer": "",
+    "winHide": false,
     "oldrc": false,
     "name": "make install_packages.sh file executable",
-    "x": 400,
-    "y": 540,
+    "x": 480,
+    "y": 780,
     "wires": [
       [
         "13c2c87a.b73bc8"
@@ -301,8 +320,8 @@
     "console": false,
     "tostatus": false,
     "complete": "false",
-    "x": 670,
-    "y": 540,
+    "x": 750,
+    "y": 780,
     "wires": []
   },
   {
@@ -317,8 +336,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 100,
-    "y": 680,
+    "x": 180,
+    "y": 920,
     "wires": [
       [
         "fbbbbe17.cfbef"
@@ -336,8 +355,8 @@
     "timer": "",
     "oldrc": false,
     "name": "execute /install_packages.sh",
-    "x": 360,
-    "y": 680,
+    "x": 440,
+    "y": 920,
     "wires": [
       [
         "70a58ad1.947204"
@@ -360,8 +379,8 @@
     "console": false,
     "tostatus": false,
     "complete": "false",
-    "x": 590,
-    "y": 680,
+    "x": 670,
+    "y": 920,
     "wires": []
   },
   {
@@ -370,8 +389,8 @@
     "z": "a6398238.dbb24",
     "name": "create bash file that creates and activates venv",
     "info": "In the template node we create a bash file that will create a virtual python environment and activate the environment.\n\n#!/bin/bash \n\ncd /data\nls -l\npython3 -m venv envtest\nsource envtest/bin/activate\nls -l\nwhich python",
-    "x": 340,
-    "y": 60,
+    "x": 400,
+    "y": 140,
     "wires": []
   },
   {
@@ -380,8 +399,8 @@
     "z": "a6398238.dbb24",
     "name": "make the bash file executable",
     "info": "",
-    "x": 280,
-    "y": 140,
+    "x": 340,
+    "y": 220,
     "wires": []
   },
   {
@@ -390,8 +409,8 @@
     "z": "a6398238.dbb24",
     "name": "make the bash file executable",
     "info": "",
-    "x": 300,
-    "y": 480,
+    "x": 380,
+    "y": 720,
     "wires": []
   },
   {
@@ -400,8 +419,8 @@
     "z": "a6398238.dbb24",
     "name": "execute the bash file",
     "info": "",
-    "x": 250,
-    "y": 260,
+    "x": 310,
+    "y": 340,
     "wires": []
   },
   {
@@ -416,8 +435,8 @@
     "topic": "",
     "payload": "",
     "payloadType": "date",
-    "x": 100,
-    "y": 420,
+    "x": 180,
+    "y": 660,
     "wires": [
       [
         "34f6f7c4.23b168"
@@ -430,12 +449,13 @@
     "z": "a6398238.dbb24",
     "name": "",
     "filename": "/data/install_packages.sh",
+    "filenameType": "str",
     "appendNewline": true,
     "createDir": false,
     "overwriteFile": "true",
     "encoding": "none",
-    "x": 610,
-    "y": 420,
+    "x": 740,
+    "y": 660,
     "wires": [
       []
     ]
@@ -449,10 +469,10 @@
     "fieldType": "msg",
     "format": "python",
     "syntax": "plain",
-    "template": "#!/bin/bash \n\ncd /data\nsource envtest/bin/activate\nls -l\nwhich python\npip3 install sys",
+    "template": "#!/bin/bash \n\ncd /data\nsource envtest/bin/activate\nls -l\nwhich python\npip3 install sys\npip3 install python-dotenv",
     "output": "str",
-    "x": 340,
-    "y": 420,
+    "x": 420,
+    "y": 660,
     "wires": [
       [
         "255ca056.4e641"
@@ -465,8 +485,8 @@
     "z": "a6398238.dbb24",
     "name": "create bash file that installs packages",
     "info": "",
-    "x": 270,
-    "y": 380,
+    "x": 350,
+    "y": 620,
     "wires": []
   },
   {
@@ -475,8 +495,8 @@
     "z": "a6398238.dbb24",
     "name": "execute the bash file to install packages",
     "info": "",
-    "x": 330,
-    "y": 620,
+    "x": 410,
+    "y": 860,
     "wires": []
   },
   {
@@ -490,8 +510,8 @@
     "tostatus": true,
     "complete": "payload",
     "targetType": "msg",
-    "x": 680,
-    "y": 920,
+    "x": 760,
+    "y": 1540,
     "wires": []
   },
   {
@@ -503,8 +523,8 @@
     "virtualenv": "/data/envtest",
     "continuous": true,
     "stdInData": true,
-    "x": 400,
-    "y": 920,
+    "x": 480,
+    "y": 1540,
     "wires": [
       [
         "e757b049.aa745"
@@ -516,6 +536,15 @@
     "type": "inject",
     "z": "a6398238.dbb24",
     "name": "inject number",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
     "repeat": "",
     "crontab": "",
     "once": false,
@@ -523,11 +552,11 @@
     "topic": "",
     "payload": "2",
     "payloadType": "num",
-    "x": 130,
-    "y": 920,
+    "x": 210,
+    "y": 1540,
     "wires": [
       [
-        "9b520682.5cbbe8"
+        "9a1e8f73166c6a4b"
       ]
     ]
   },
@@ -537,8 +566,8 @@
     "z": "a6398238.dbb24",
     "name": "inject a number to the python script and display it in the debug window",
     "info": "",
-    "x": 430,
-    "y": 880,
+    "x": 510,
+    "y": 1500,
     "wires": []
   },
   {
@@ -551,8 +580,74 @@
     "console": false,
     "tostatus": false,
     "complete": "false",
-    "x": 690,
-    "y": 820,
+    "x": 770,
+    "y": 1380,
     "wires": []
+  },
+  {
+    "id": "e0ffc6da89f1f61f",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 850,
+    "y": 180,
+    "wires": []
+  },
+  {
+    "id": "f08c32bbb384b3ac",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "Create Virtual Environment",
+    "info": "",
+    "x": 290,
+    "y": 60,
+    "wires": []
+  },
+  {
+    "id": "742cceecd06ff3ad",
+    "type": "comment",
+    "z": "a6398238.dbb24",
+    "name": "Install Packages To Virtual Environment",
+    "info": "",
+    "x": 330,
+    "y": 540,
+    "wires": []
+  },
+  {
+    "id": "dccae4fd0ea5d82f",
+    "type": "debug",
+    "z": "a6398238.dbb24",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": true,
+    "tostatus": true,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 760,
+    "y": 1620,
+    "wires": []
+  },
+  {
+    "id": "9a1e8f73166c6a4b",
+    "type": "pythonshell in",
+    "z": "a6398238.dbb24",
+    "name": "test.py",
+    "pyfile": "/data/python_code/test.py",
+    "virtualenv": "/data/envtest",
+    "continuous": false,
+    "stdInData": false,
+    "x": 470,
+    "y": 1620,
+    "wires": [
+      [
+        "dccae4fd0ea5d82f"
+      ]
+    ]
   }
 ]

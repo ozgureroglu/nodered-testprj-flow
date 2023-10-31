@@ -52,5 +52,10 @@
     "uri": "",
     "advanced": "{}",
     "uriTabActive": "tab-uri-simple"
+  },
+  {
+    "id": "fe78a96200b2b869",
+    "type": "gauth",
+    "name": "nodered-gsheet-516@qubitera.iam.gserviceaccount.com"
   }
 ]
