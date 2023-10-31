@@ -665,13 +665,13 @@
         "name": "",
         "active": true,
         "tosidebar": true,
-        "console": true,
+        "console": false,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
+        "x": 850,
         "y": 1480,
         "wires": []
     },
@@ -690,6 +690,86 @@
         "y": 1480,
         "wires": [
             [
+                "09da81a749e97b66"
+            ]
+        ]
+    },
+    {
+        "id": "dddac589dc04879d",
+        "type": "chatgpt",
+        "z": "6fb4aaa5bde27126",
+        "name": "",
+        "API_KEY": "",
+        "Organization": "",
+        "topic": "completion",
+        "BaseUrl": "https://api.openai.com",
+        "x": 560,
+        "y": 1660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "09da81a749e97b66",
+        "type": "function",
+        "z": "6fb4aaa5bde27126",
+        "name": "processoutput",
+        "func": "let resp = []\nfor (let index = 0; index < msg.payload.length; index++) {\n    const element = msg.payload[index];\n    resp.push(element[0])\n}\nmsg.payload = resp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1480,
+        "wires": [
+            [
+                "4505fa40064cf5fe"
+            ]
+        ]
+    },
+    {
+        "id": "4505fa40064cf5fe",
+        "type": "loop",
+        "z": "6fb4aaa5bde27126",
+        "name": "test",
+        "kind": "enum",
+        "count": "",
+        "initial": "1",
+        "step": "1",
+        "condition": "",
+        "conditionType": "js",
+        "when": "before",
+        "enumeration": "payload",
+        "enumerationType": "msg",
+        "limit": "",
+        "loopPayload": "loop-val",
+        "finalPayload": "final-last",
+        "x": 770,
+        "y": 1280,
+        "wires": [
+            [],
+            [
+                "bb8ac397ce535546"
+            ]
+        ]
+    },
+    {
+        "id": "bb8ac397ce535546",
+        "type": "function",
+        "z": "6fb4aaa5bde27126",
+        "name": "function 1",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1420,
+        "wires": [
+            [
+                "4505fa40064cf5fe",
                 "7d78c9efdaa79028"
             ]
         ]
